@@ -6,9 +6,9 @@ def tagtracker(s, libhits, graphML, source):
     
     for v in graphML.nodes():
         if int(v) in libhits['#Scan#'].tolist():
-            graphML.node[v]['InChIKey-Planar'] = str(libhits[libhits['#Scan#'] == int(v)]['InChIKey-Planar'].iloc[-1])
+            graphML.nodes[v]['InChIKey-Planar'] = str(libhits[libhits['#Scan#'] == int(v)]['InChIKey-Planar'].iloc[-1])
         else:
-            graphML.node[v]['InChIKey-Planar'] = 'No library hit'
+            graphML.nodes[v]['InChIKey-Planar'] = 'No library hit'
             
     sel = s[s['TAGS'].str.match(source)]['InChI_Key_Planar'].tolist()
     
@@ -16,7 +16,7 @@ def tagtracker(s, libhits, graphML, source):
     sel_ids = list()
     
     for v in graphML.nodes():
-        if graphML.node[v]['InChIKey-Planar'] in sel:
+        if graphML.nodes[v]['InChIKey-Planar'] in sel:
             sel_ids.append(v)
     
     # select all neighbours of the library matches
