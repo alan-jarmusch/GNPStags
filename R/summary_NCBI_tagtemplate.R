@@ -83,7 +83,7 @@ summary_NCBI_tagtemplate <- function(){
   add_tags <- subset(add_tags, add_tags$CCMSLIB != "NA" & add_tags$TAGS != "NA" &  add_tags$TAGS != "")
 
   df_CCMSLIB_tags <- as.data.table(merge(study_SpectrumID, add_tags, by="CCMSLIB"))
-    studyinfo_CCMS_n_rows_with_uniqueCCMS <- as.numeric(length(study_SpectrumID$CCMSLIB)) #numbers out
+    studyinfo_CCMS_n_unique_CCMS_w_tag <- as.numeric(length(unique(df_CCMSLIB_tags$CCMSLIB))) #numbers out
   
   if (nrow(df_CCMSLIB_tags) > 0) {
     df_CCMSLIB_tags <- df_CCMSLIB_tags %>% distinct()
