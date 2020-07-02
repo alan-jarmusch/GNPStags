@@ -1,5 +1,5 @@
 # GNPS-tags
 
-## TagTracker
-Filter GNPS molecular networks using GNPS tags (python) - [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/alan-jarmusch/GNPStags/master)
+The GNPS tagging system provide context to MS/MS spectral library matches obtained @ [gnps.ucsd.edu](https://gnps.ucsd.edu/ProteoSAFe/static/gnps-splash.jsp)
 
+## JupyterNotebooks can be run via [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/alan-jarmusch/GNPStags/master)
