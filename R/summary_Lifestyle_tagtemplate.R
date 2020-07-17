@@ -11,10 +11,11 @@
 
 summary_Lifestyle_tagtemplate <- function(){
   
-  library(data.table)
-  library(dplyr)
-  library(tidyr)
-  library(ggplot2)
+  suppressMessages(library(data.table))
+  suppressMessages(library(dplyr))
+  suppressMessages(library(tidyr))
+  suppressMessages(library(ggplot2))
+  suppressMessages(library(zip))
   
   # INPUT: Master Tag Sheet (.tsv)
   df_master <- fread("https://docs.google.com/spreadsheets/d/e/2PACX-1vTNNhRZYDQ9IzS-B5MoulYi3Fmpr5H1STPGYIUzjrpSw2TyoJ0Yp9wKwMmz7T_j5zPjVeYU9rJIG_pM/pub?gid=830441611&single=true&output=tsv",sep="\t", header=TRUE, stringsAsFactors = FALSE)
@@ -172,4 +173,11 @@ summary_Lifestyle_tagtemplate <- function(){
                              "n_GNPSannotations_with_CCMS", "n_unique_CCMS", "n_CCMS_with1moretag")
   colnames(tag_numbers) <- "LifestyleTag"
   write.csv(tag_numbers, "number_LifestyleTag.csv", row.names = TRUE)
-}
+  
+  zipr("UBERON_zip.zip", c("GNPS_hittable_LifestyleTag.csv",
+                           "GNPS_TagTemplate_Summary_Lifestyle.pdf", 
+                           "GNPS_TagTemplate_Summary_Lifestyle.png",
+                           "GNPS_TagTemplate_SummaryPercentage_Lifestyle.pdf", 
+                           "GNPS_TagTemplate_SummaryPercentage_Lifestyle.png",
+                           "number_LifestyleTag.csv"))
+  }
