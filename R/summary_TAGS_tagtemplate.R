@@ -11,10 +11,11 @@
 
 summary_TAGS_tagtemplate <- function(){
 
-  library(data.table)
-  library(dplyr)
-  library(tidyr)
-  library(ggplot2)
+  suppressMessages(library(data.table))
+  suppressMessages(library(dplyr))
+  suppressMessages(library(tidyr))
+  suppressMessages(library(ggplot2))
+  suppressMessages(library(zip))
   
   # INPUT: Master Tag Sheet (.tsv)
   df_master <- fread("https://docs.google.com/spreadsheets/d/e/2PACX-1vTNNhRZYDQ9IzS-B5MoulYi3Fmpr5H1STPGYIUzjrpSw2TyoJ0Yp9wKwMmz7T_j5zPjVeYU9rJIG_pM/pub?gid=830441611&single=true&output=tsv",sep="\t", header=TRUE, stringsAsFactors = FALSE)
@@ -167,5 +168,12 @@ summary_TAGS_tagtemplate <- function(){
                              "n_GNPSannotations_with_CCMS", "n_unique_CCMS", "n_CCMS_with1moretag")
   colnames(tag_numbers) <- "GNPStags"
   write.csv(tag_numbers, "numbers_TAGS.csv", row.names = TRUE)
+  
+  zipr("TAGS_zip.zip", c("GNPS_hittable_TAGS.csv",
+                         "GNPS_TagTemplate_Summary_TAG.pdf", 
+                         "GNPS_TagTemplate_Summary_TAG.png",
+                        "GNPS_TagTemplate_SummaryPercentage_TAG.pdf", 
+                        "GNPS_TagTemplate_SummaryPercentage_TAG.png",
+                        "numbers_TAGS.csv"))
   }
 

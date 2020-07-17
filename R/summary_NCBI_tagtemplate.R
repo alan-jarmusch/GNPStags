@@ -11,10 +11,11 @@
 
 summary_NCBI_tagtemplate <- function(){
 
-  library(data.table)
-  library(dplyr)
-  library(tidyr)
-  library(ggplot2)
+  suppressMessages(library(data.table))
+  suppressMessages(library(dplyr))
+  suppressMessages(library(tidyr))
+  suppressMessages(library(ggplot2))
+  suppressMessages(library(zip))
   
   # INPUT: Master Tag Sheet (.tsv)
   df_master <- fread("https://docs.google.com/spreadsheets/d/e/2PACX-1vTNNhRZYDQ9IzS-B5MoulYi3Fmpr5H1STPGYIUzjrpSw2TyoJ0Yp9wKwMmz7T_j5zPjVeYU9rJIG_pM/pub?gid=830441611&single=true&output=tsv",sep="\t", header=TRUE, stringsAsFactors = FALSE)
@@ -172,4 +173,11 @@ summary_NCBI_tagtemplate <- function(){
                              "n_GNPSannotations_with_CCMS", "n_unique_CCMS", "n_CCMS_with1moretag")
   colnames(tag_numbers) <- "NCBITaxonomyTag"
   write.csv(tag_numbers, "numbers_NCBITaxonomyTag.csv", row.names = TRUE)
-}
+  
+  zipr("UBERON_zip.zip", c("GNPS_hittable_NCBITaxonomyTag.csv",
+                           "GNPS_TagTemplate_Summary_NCBI.pdf", 
+                           "GNPS_TagTemplate_Summary_NCBI.png",
+                           "GNPS_TagTemplate_SummaryPercentage_NCBI.pdf", 
+                           "GNPS_TagTemplate_SummaryPercentage_NCBI.png",
+                           "numbers_NCBITaxonomyTag.csv"))
+  }
