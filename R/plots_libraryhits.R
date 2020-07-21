@@ -8,7 +8,7 @@
 #' @author Alan K. Jarmusch 2020
 #' @export
 #'
-plots_libraryhit <- function(path) {
+plots_libraryhits <- function(path) {
   summary_TAGS_libraryhits()
   summary_UBERON_libraryhits()
   summary_NCBI_libraryhits()

@@ -88,7 +88,7 @@ summary_UBERON_tagtemplate <- function(){
   if (nrow(df_CCMSLIB_tags) > 0) {
     df_CCMSLIB_tags <- df_CCMSLIB_tags %>% distinct()
     colnames(df_CCMSLIB_tags)[1] <- "CCMSLIB"
-    tags_CCMS <- cbind(df_CCMSLIB_tags[,"CCMSLIB"],separate(df_CCMSLIB_tags[,"TAGS"], TAGS, paste0("X",1:max(sapply(strsplit(df_CCMSLIB_tags$TAGS,"\\|"),length))), sep="\\|"))
+    tags_CCMS <- cbind(df_CCMSLIB_tags[,"CCMSLIB"],separate(df_CCMSLIB_tags[,"UBERONBodyPartName"], UBERONBodyPartName, paste0("X",1:max(sapply(strsplit(df_CCMSLIB_tags$UBERONBodyPartName,"\\|"),length))), sep="\\|"))
     colnames(tags_CCMS)[2] <- "terms"
     tags_CCMS <- subset(tags_CCMS, tags_CCMS$terms != "NA" & tags_CCMS$terms != "")
     if (nrow(tags_CCMS) > 0) {
