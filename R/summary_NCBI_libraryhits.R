@@ -143,7 +143,7 @@ summary_NCBI_libraryhits <- function(){
   colnames(tag_numbers) <- "NCBITaxonomyTag"
   write.csv(tag_numbers, "numbers_NCBITaxonomyTag.csv", row.names = TRUE)
   
-  zipr("UBERON_zip.zip", c("GNPS_hittable_NCBITaxonomyTag.csv",
+  zipr("zip_NCBI.zip", c("GNPS_hittable_NCBITaxonomyTag.csv",
                            "GNPS_LibraryHitTable_Summary_NCBI.pdf", 
                            "GNPS_LibraryHitTable_Summary_NCBI.png",
                            "GNPS_LibraryHitTable_SummaryPercentage_NCBI.pdf", 

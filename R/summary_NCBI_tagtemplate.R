@@ -174,7 +174,7 @@ summary_NCBI_tagtemplate <- function(){
   colnames(tag_numbers) <- "NCBITaxonomyTag"
   write.csv(tag_numbers, "numbers_NCBITaxonomyTag.csv", row.names = TRUE)
   
-  zipr("UBERON_zip.zip", c("GNPS_hittable_NCBITaxonomyTag.csv",
+  zipr("zip_NCBI.zip", c("GNPS_hittable_NCBITaxonomyTag.csv",
                            "GNPS_TagTemplate_Summary_NCBI.pdf", 
                            "GNPS_TagTemplate_Summary_NCBI.png",
                            "GNPS_TagTemplate_SummaryPercentage_NCBI.pdf", 

@@ -169,7 +169,7 @@ summary_TAGS_tagtemplate <- function(){
   colnames(tag_numbers) <- "GNPStags"
   write.csv(tag_numbers, "numbers_TAGS.csv", row.names = TRUE)
   
-  zipr("TAGS_zip.zip", c("GNPS_hittable_TAGS.csv",
+  zipr("zip_TAGS.zip", c("GNPS_hittable_TAGS.csv",
                          "GNPS_TagTemplate_Summary_TAG.pdf", 
                          "GNPS_TagTemplate_Summary_TAG.png",
                         "GNPS_TagTemplate_SummaryPercentage_TAG.pdf", 

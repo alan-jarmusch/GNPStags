@@ -142,7 +142,7 @@ summary_Lifestyle_libraryhits <- function(){
   colnames(tag_numbers) <- "LifestyleTag"
   write.csv(tag_numbers, "number_LifestyleTag.csv", row.names = TRUE)
   
-  zipr("UBERON_zip.zip", c("GNPS_hittable_LifestyleTag.csv",
+  zipr("zip_Lifestyle.zip", c("GNPS_hittable_LifestyleTag.csv",
                            "GNPS_LibraryHitTable_Summary_Lifestyle.pdf", 
                            "GNPS_LibraryHitTable_Summary_Lifestyle.png",
                            "GNPS_LibraryHitTable_SummaryPercentage_Lifestyle.pdf", 

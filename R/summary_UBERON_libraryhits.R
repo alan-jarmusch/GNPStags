@@ -143,7 +143,7 @@ summary_UBERON_libraryhits <- function(){
   colnames(tag_numbers) <- "UBERONTag"
   write.csv(tag_numbers, "numbers_UBERONTag.csv", row.names = TRUE)
   
-  zipr("UBERON_zip.zip", c("GNPS_hittable_UBERONTag.csv",
+  zipr("zip_UBERON.zip", c("GNPS_hittable_UBERONTag.csv",
                            "GNPS_LibraryHitTable_Summary_UBERON.pdf", 
                            "GNPS_LibraryHitTable_Summary_UBERON.png",
                            "GNPS_LibraryHitTable_SummaryPercentage_UBERON.pdf", 
